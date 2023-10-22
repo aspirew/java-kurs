@@ -816,6 +816,51 @@
 						Dodanie do mapy nowej wartości o isteniejącym kluczu zastąpi istniejący obiekt.
 					</textarea>
 				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wyrazenia regularne
+						Czyli sprawdzenie, czy ciąg znaków jest zgodny ze wzorcem
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wyrazenia regularne
+						Kilka przykładowych zasad
+						<pre><code data-trim data-noescape data-line-numbers>
+							[A-Z] - kazda wielka litera
+							[A-z] - kazda litera bez względu na wielkość
+							[A-z]* - dowolna ilość liter
+							[A-z]+ - dowolna ilość liter, conajmniej jedna
+							[0-9]{1,3} - liczba o długości nie większej niz 3 (np. 785)
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wyrazenia regularne
+						Przykładowy regex - Regex na imię i nazwisko
+						<pre><code data-trim data-noescape data-line-numbers>
+							[A-Z][a-z]+\s[A-Z][a-z]+
+							Adam Kowalski - OK
+							roman-wilczynski - Nie OK
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## https://regexr.com/
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wyrazenia regularne w javie
+						<pre><code data-trim data-noescape data-line-numbers>
+							Pattern pattern = Pattern.compile("[A-Z][a-z]+\\s[A-Z][a-z]+");
+							Matcher matcher = pattern.matcher("Adam Kowalski");
+							System.out.println(matcher.find());
+						</code></pre>
+					</textarea>
+				</section>
 			</div>
 		</div>
 
