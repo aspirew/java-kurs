@@ -497,7 +497,7 @@
 						<pre><code data-trim data-noescape data-line-numbers>
 							public class Samochod {
 
-								String marka;
+								private String marka;
 							
 								public void setMarka(String marka) {
 									this.marka = marka;
@@ -777,6 +777,43 @@
 						<pre><code data-trim data-noescape data-line-numbers>
 							< Klucz , Wartosc>
 						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Map
+						<pre><code data-trim data-noescape data-line-numbers>
+							Map< String, Product > produkty = new HashMap<>();
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Map
+						<pre><code data-trim data-noescape data-line-numbers>
+							Product rowerGorski = new Product("Giant", "ABC")
+							Product rowerTrekkingowy = new Product("Kross", "123")
+							Product rowerGravel = new Product("Canyon", "A1B2")
+							Map< String, Product > produkty = new HashMap<>();
+							produkty.put(rowerGorski.id, rowerGorski)
+							produkty.put(rowerTrekkingowy.id, rowerTrekkingowy)
+							produkty.put(rowerGravel.id, rowerGravel)
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Map
+						<pre><code data-trim data-noescape data-line-numbers>
+							produkty.get("ABC"); <- wynikiem będzie Produkt "rowerGorski"
+							produkty.get("999"); <- wynikiem będzie null
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Map
+						Dodanie do mapy nowej wartości o isteniejącym kluczu zastąpi istniejący obiekt.
 					</textarea>
 				</section>
 			</div>
