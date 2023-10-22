@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+  					<textarea data-template>
+						# Programowanie Java
+						## Październik 2023
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+					  #### inż. Rafał Behrendt
+					  #### Inżynier oprogramowania
+					  #### Fullstack developer
+					  raf.behrendt@gmail.com
+				  </textarea>
+			  </section>
+				<section data-markdown>
+					<textarea data-template>
+						## Zasady zaliczenia
+						Praca na zajęciach
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## IDE - Intellij IDEA
+						https://www.jetbrains.com/idea/download/
+						- intellisense
+						- podkreślanie błędów
+						- wywołanie kodu
+						- i wiele więcej
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Idea programowania
+						Sposób porozumiewania się z komputerem
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Słowo kluczowe
+						Słowo zarezerwowane dla języka. Słuzy ono porozumiewaniu się z komputerem.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Typy
+						 - Pewien rodzaj danych
+						 - Na przykład: liczba, słowo
+						 - W javie: int, String
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Zmienna
+						- Miejsce na przechowanie danych
+						- Dane są pewnego określonego typu
+						- Posiada unikalną (w obrębie kodu) nazwę
+						- W javie: int x, String b, int liczba
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### W jaki sposób w javie deklarować zmienne?
+						<pre><code data-trim data-noescape>
+						int x = 2
+						{{typ}} {{nazwa}} = {{wartość}}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						- Nazwa zmiennej może być dowolna
+						- Ale nie może być słowem kluczowym!
+						<pre><code data-trim data-noescape>
+							int zmienna = 2 <- poprawnie
+							int zmienna1 = 2 <- poprawnie
+							int int = 2 <- błąd!
+							int string = 5 <- błąd!
+							int 1zmienna = 10 <- błąd!
+							int 123 = 10 <- błąd!
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Standardy tworzenia nazw
+						- camelCase - na przykład: <em>sumaWszystkichLiczb, wartoscDodawania, liczba</em>
+						- PascalCase - na przykład: <em>SumaWszystkichLiczb, WartoscDodawania, Liczba</em>
+						- kebab-case - na przykład: <em>suma-wszystkich-liczb, wartosc-dodawania, liczba</em>
+						- W javie nazwy zmiennych tworzymy uywając camelCase.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Dobrze zadeklarowana zmienna
+						<pre><code data-trim data-noescape data-line-numbers>
+							int wartoscDodawania = 2 + 2; <- PRAWIDŁOWO
+							int b = 6 + 5; <- NIEPRAWIDŁOWO
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						### Wykonanie imperatywne kodu
+						Czyli innymi słowy linijka po linijce
+						Na przykład:
+						<pre><code data-trim data-noescape data-line-numbers>
+							int a = 2;
+							int b = a + 5;
+						</code></pre>
+						Koniec instrukcji w Javie kończymy średnikiem (;)
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						https://www.baeldung.com/get-started-with-java-series
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Instrukcje warunkowe
+						Czyli możliwość dokonywania wyborów przez komputer
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Podstawowa instrukcja <em>if</em>
+						<pre><code data-trim data-noescape data-line-numbers>
+							int liczba = 5;
+							if(liczba > 3) {
+								System.out.println("Wartość większa niż 5");
+							}
+						</code></pre>
+						<pre><code data-trim data-noescape data-line-numbers>
+							if({{wartość-logiczna}}) {
+								// miejsce na instrukcje
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Instrukcja <em>if-else</em>
+						<pre><code data-trim data-noescape data-line-numbers>
+							int liczba = 3;
+							if(liczba > 5) {
+								System.out.println("Wartość większa niż 5");
+							}
+							else {
+								System.out.println("Wartość mniejsza lub równa 5");
+							}
+						</code></pre>
+						<pre><code data-trim data-noescape data-line-numbers>
+							if({{wartość-logiczna}}) {
+								// miejsce na instrukcje
+							}
+							else {
+								// miejsce na instrukcje
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Instrukcja <em>if-else</em>
+						<pre><code data-trim data-noescape data-line-numbers>
+							int liczba = 5;
+							if(liczba > 5) {
+								System.out.println("Wartość większa niż 5");
+							}
+							else if(liczba == 5){
+								System.out.println("Wartość równa 5");
+							}
+							else {
+								System.out.println("Wartość mniejsza niz 5");
+							}
+						</code></pre>
+						<pre><code data-trim data-noescape data-line-numbers>
+							if({{wartość-logiczna}}) {
+								// miejsce na instrukcje
+							}
+							else if({{wartość-logiczna}}){
+								// miejsce na instrukcje
+							}
+							else {
+								// miejsce na instrukcje
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Operator warunkowy (ternary)
+						Jednolinijkowy odpowiednik if-else
+						<pre><code data-trim data-noescape data-line-numbers>
+							int liczba = 5;
+							int tekstDoWypisania = liczba > 5 
+							? "Liczba większa niz 5" 
+							: "Liczba mniejsza lub równa 5";
+						</code></pre>
+						<pre><code data-trim data-noescape data-line-numbers>
+							{{wartość-logiczna}} 
+							? {{wynik-w-przypadku-spełnienia-warunku}} 
+							: {{wynik-w-innym-przypadku}};
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Switch
+						Wykorzystywany przy duzej liczbie warunków
+						<pre><code data-trim data-noescape data-line-numbers>
+							int liczba = 3;
+							switch (liczba) {
+							case 0:
+								System.out.println("Liczba jest rowna 0");
+								break;
+							case 1:
+								System.out.println("Liczba jest rowna 1");
+								break;
+							default:
+								System.out.println("Liczba jest większa od 1 lub ujemna");
+								break;
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Funkcje
+						Czyli sposób na tworzenie kodu reużywalnego
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Struktura funkcji
+						<pre><code data-trim data-noescape data-line-numbers>
+							void przywitajSie() {
+								System.out.println("Hello!");
+							}
+						</code></pre>
+						<pre><code data-trim data-noescape data-line-numbers>
+							{{zwracany-typ}} {{nazwa-funkcji}}() {
+								// miejsce na instrukcje
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Przykładowy kod
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Main {
+								public static void main(String[] args) {
+									przywitajSie();
+								}
+							
+							
+								static void przywitajSie() {
+									System.out.println("Hello!")
+								}
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Parametry funkcji
+						<pre><code data-trim data-noescape data-line-numbers>
+							void przywitajSie(String imie) {
+								System.out.println("Hello " + imie + "!")
+							}
+						</code></pre>
+						<pre><code data-trim data-noescape data-line-numbers>
+							{{zwracany-typ}} {{nazwa-funkcji}}({{typ-parametru}} {{nazwa-parametru}}) {
+								// miejsce na instrukcje
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Przykładowy kod
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Main {
+								public static void main(String[] args) {
+									przywitajSie("Marek");
+									przywitajSie("Zosia");
+								}
+
+								static void przywitajSie(String imie) {
+									System.out.println("Hello " + imie + "!")
+								}
+						}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wartość zwracana
+						- <em>void</em> - funkcja nic nie zwraca
+						<pre><code data-trim data-noescape data-line-numbers>
+							String przywitanie(String imie) {
+								return "Hello " + imie + "!";
+							}
+						</code></pre>
+						<pre><code data-trim data-noescape data-line-numbers>
+							{{zwracany-typ}} {{nazwa-funkcji}}({{typ-parametru}} {{nazwa-parametru}}) {
+								// miejsce na instrukcje
+								return {{wartość-zwracana}}
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Przykładowy kod
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Main {
+								public static void main(String[] args) {
+									String przywitanieMarka = przywitanie("marek")
+									System.out.println(przywitanieMarka)
+								}
+							
+								static String przywitanie(String imie) {
+									return "Hello " + imie + "!";
+								}
+						}
+							
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Klasy i obiekty
+						Czyli projekt pewnego elementu i jego faktyczna instancja.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Obiekt
+						Element posiadajacy pewne określone cechy
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Klasa
+						Wzór, na podstawie którego moze zostać stworzony obiekt.
+						- konstruktor
+						- pola
+						- metody
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Definicja klasy
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Samochod {
+
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Definicja klasy
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Samochod {
+								String model; <- pola
+								String marka;
+								int predkosc;
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Definicja klasy
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Samochod {
+								String model;
+								String marka;
+								int predkosc;
+
+								Samochod(
+									String model, 
+									String marka, 
+									int predkosc
+								) { <- konstruktor
+									this.model = model;
+									this.marka = marka;
+									this.predkosc = predkosc;
+								}
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Definicja klasy
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Samochod {
+								String model;
+								String marka;
+								int predkosc;
+
+								Samochod(
+									String model, 
+									String marka, 
+									int predkosc
+								) {
+									this.model = model;
+									this.marka = marka;
+									this.predkosc = predkosc;
+								}
+
+								public void wypiszDane() { <- metoda
+									System.out.println(this.marka)
+									System.out.println(this.model)
+									System.out.println(this.predkosc)
+								}
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Jak utworzyć instancję obiektu
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Main {
+								public static void main(String[] args) {
+									Samochod samochod = new Samochod("Ford", "Mustang", 300);
+								}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Pakiety
+						Czyli sposób na organizację kodu
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Pakiety
+						- pakiety mozna traktować jak foldery
+						- słuzą organizacji kodu
+					</textarea> 
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Modyfikatory dostępu
+						Czyli gdzie w obrębie kodu istnieje dostęp do danego elementu
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Modyfikatory dostępu
+						- wartości te odnoszą się do klas i ich składowych
+						- istnieją trzy modyfikatory dostępu
+						<pre><code data-trim data-noescape data-line-numbers>
+							public - element publicznie dostępny
+							protected - element dostępny w obrębie pakietu
+							private - element dostępny jedynie w obrębie klasy
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Modyfikatory dostępu
+						- domyślnie wszystkie wartości wewnątrz klasy są prywatne
+						- raczej powinniśmy unikać nadawnia wartości public dla pól klasy
+						- pola klasy powinny być modyfikowane jedynie w obrębie klasy
+						- aby to rozwiązać stosuje się tzw. gettery i settery. Czyli metody modyfikujące pola
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Getter i setter
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Samochod {
+
+								String marka;
+							
+								public void setMarka(String marka) {
+									this.marka = marka;
+								}
+								public String getMarka() {
+									return this.marka;
+								}
+							}
+							
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Przekazanie przez wartość lub referencję
+						Czyli przekazanie kopii lub oryginału
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Przekazanie przez wartość lub referencję
+						- W javie kazda wartość złozona (obiekt) jest przekazywana przez referencję
+						- Oznacza to, ze modyfikacja tej wartości wpływa na wartość przekazaną
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Przekazanie przez wartość lub referencję
+						- Inaczej jest w przypadku typów prymitywnych
+						- Do funkcji przekazywana jest kopia
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Obsługa wyjątków
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Obsługa wyjątków
+						- Wyjątek (Exception) to błąd występujący w trakcie działania programu (runtime)
+						- Wynika z rzeczy niespodziewanych
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Obsługa wyjątków
+						- Przykładowo moze to być błędny typ podany na wejściu programu
+						- Albo wyjście poza dozwolony zakres tablicy
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Obsługa wyjątków
+						Poniszy kod rzuci wyjątkiem "Index 10 out of bounds for length 3"
+						<pre><code data-trim data-noescape data-line-numbers>
+							int[] arr = {1, 2, 3};
+							System.out.println(arr[10]);
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Try-catch
+						Aby zapobiec potencjalnemu błędowi mozna skorzystać z bloku try-catch
+						<pre><code data-trim data-noescape data-line-numbers>
+							try {
+								int[] arr = {1, 2, 3};
+								System.out.println(arr[10]);
+							}
+							catch(IndexOutOfBoundsException exception){
+								System.out.println("Indeks poza dozwolonym zakresem!");
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Try-catch
+						Liczba "catch" jest dowolna
+						<pre><code data-trim data-noescape data-line-numbers>
+							try {
+								// kod
+							}
+							catch(IndexOutOfBoundsException exception){
+								System.out.println("Indeks poza dozwolonym zakresem!");
+							}
+							catch(Exception e){
+								System.out.println("Nieznany błąd");
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Try-catch-finally
+						Try catch mozna zakończyć słowem klczowym finally, które wykona kod na koniec instrukcji try-catch, bez względu na rezultat.
+						<pre><code data-trim data-noescape data-line-numbers>
+							try {
+								int[] arr = {1, 2, 3};
+								System.out.println(arr[10]);
+							}
+							catch(IndexOutOfBoundsException exception){
+								System.out.println("Indeks poza dozwolonym zakresem!");
+							}
+							finally {
+								System.out.println("Koniec");
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Throw
+						Wyjątek mozna rzucić "ręcznie"
+						<pre><code data-trim data-noescape data-line-numbers>
+							throw new Exception("Exception stack trace")
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Popularne wyjątki
+						- ArrayIndexOutOfBoundsException
+						- IllegalArgumentException
+						- ClassCastException
+						- NullPointerException
+						- NumberFormatException
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Rzutowanie typów
+						Czyli konwersja z jednego typu do drugiego
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Rzutowanie typów
+						<pre><code data-trim data-noescape data-line-numbers>
+							int myInt = 9;
+							double myDouble = myInt;
+						
+							System.out.println(myInt);      // Outputs 9
+							System.out.println(myDouble);   // Outputs 9.0
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Rzutowanie typów
+						<pre><code data-trim data-noescape data-line-numbers>
+							double myDouble = 9.78d;
+							int myInt = (int) myDouble;
+						
+							System.out.println(myDouble);   // Outputs 9.78
+							System.out.println(myInt);      // Outputs 9
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Rzutowanie typów
+						<pre><code data-trim data-noescape data-line-numbers>
+							char myChar = 'a';
+							int myInt = (int) myChar;
+					
+							System.out.println(myChar);   // Outputs a
+							System.out.println(myInt);      // Outputs 97
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Input do programu
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Input do programu
+						- realizowany przez obiekt Scanner
+						<pre><code data-trim data-noescape data-line-numbers>
+							Scanner scanner = new Scanner(System.in);
+							String liczba = scanner.next();
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Input do programu
+						- potrafi odczytać równiez inne źródła wejścia, np pliki
+						<pre><code data-trim data-noescape data-line-numbers>
+							File file = new File("file.txt");
+
+							Scanner input = new Scanner(file);
+					
+							while (input.hasNextLine()) {
+								String line = input.nextLine();
+								System.out.println(line);
+							}
+							input.close();
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Kolekcje
+						- Obiekty przechowujące kolekcje wartości
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## ArrayList
+						- List wartości zakładająca wartości powtarzające się
+						<pre><code data-trim data-noescape data-line-numbers>
+							List< Integer > list = new ArrayList<>();
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## ArrayList
+						- Dodawanie wartości
+						<pre><code data-trim data-noescape data-line-numbers>
+							List< Integer > list = new ArrayList<>();
+
+								list.add(1);
+								list.add(2);
+								list.add(1, 3);
+						
+								System.out.println(list); // [1, 3, 2]
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## ArrayList
+						- Umozliwa działania na strumieniach
+						<pre><code data-trim data-noescape data-line-numbers>
+							List< Integer > list = new ArrayList<>();
+
+								list.add(1);
+								list.add(2);
+								list.add(1, 3);
+						
+								list.forEach((n) -> System.out.print(n)); // 123
+								list.forEach(System.out::println); // 123
+							</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Set
+						- Zarówno set jak i lista mogą być zainicjowane sobą nawzajem
+						<pre><code data-trim data-noescape data-line-numbers>
+							List< Integer > list = new ArrayList<>();
+								list.add(1);
+								list.add(2);
+								list.add(2);
+								System.out.println(list); // [1, 2, 2]
+						
+								Set< Integer > set = new HashSet<>(list);
+								System.out.println(set); // [1, 2]
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Map
+						Innymi słowy słownik
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Map
+						- Przechowuje dane w następujący sposób:
+						<pre><code data-trim data-noescape data-line-numbers>
+							< Klucz , Wartosc>
+						</code></pre>
+					</textarea>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
