@@ -861,6 +861,379 @@
 						</code></pre>
 					</textarea>
 				</section>
+								<section data-markdown>
+					<textarea data-template>
+						## Klasa Object
+						Czyli najbardziej podstawowa klasa w Javie
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Klasa Object
+						W Javie, jak i kazdym obiektowym jezyku programowania istnieje pojęcie dziedziczenia. 
+						Polega ono na tym, ze pewna klasa ma swojego rodzica po ktorym dziedziczy pewne atrybuty.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Klasa Object
+						W Javie kazda klasa domyślnie dziedziczy po klasie Object. Wraz z nia obiekt otrzymuje kilka atrybutów:
+						- equals() - słuzy do sprawdzenia, czy dany obiekt to ta sama instancja (porównanie referencji)
+						- hashCode() - zwraca identyfikator obiektu - z reguły, jest to adres w pamięci komputera
+						- toString() - metoda słuzaca przekształceniu obiektu do ciagu znaków (string)
+						...
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Metoda toString()
+						Domyślna metoda toString zwraca wartość: {lokalizacja$NazwaKlasy@adresWPamięci}
+						<pre><code data-trim data-noescape data-line-numbers>
+							package pakiet;
+
+							public class Main {
+								public static void main(String[] args) {
+								  AClass object1 = new AClass();
+								  AClass object2 = new AClass();
+							  
+								  // przy wypisywaniu obiektu wywoływana jest domyślna metoda toString()
+								  // pakiet.Main$AClass@36baf30c
+								  System.out.println(object1);
+								  // pakiet.Main$AClass@7a81197d
+								  System.out.println(object2);
+								}
+							  
+								static class AClass { }
+							  }							  
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Metoda toString()
+						Kazda wartość rodzica mozna nadpisać w dziecku
+						<pre><code data-trim data-noescape data-line-numbers>
+							package pakiet;
+
+							public class Main {
+								public static void main(String[] args) {
+								  AClass object1 = new AClass();
+								  AClass object2 = new AClass();
+							  
+								  // przy wypisywaniu obiektu wywoływana jest nadpisana metoda toString()
+								  // An instance of AClass
+								  System.out.println(object1);
+								  // An instance of AClass
+								  System.out.println(object2);
+								}
+							  
+								static class AClass {
+									@Override // adnotacja informujaca o nadpisaniu
+									// modyfikator dostępu, zwracany typ i nazwa nadpisywanej metody musza być takie same
+									public String toString() { 
+										return "An instance of AClass";
+									}
+								 }
+							  }							  
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Static
+						Wartość statyczna - czyli wspólna dla wszystkich obiektów
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Static
+						Wartość statyczna odnosi się bezpośrednio do klasy, a nie do konkretnej instancji
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Static
+						<pre><code data-trim data-noescape data-line-numbers>
+							class Counter{
+								static int staticCounter;
+								int instanceCounter = 0;
+							}
+
+							public static void main(String[] args) {
+								Counter.staticCounter = 1;
+							
+								Counter counter1 = new Counter();
+								counter1.instanceCounter = 6;
+							
+								Counter counter2 = new Counter();
+								counter2.instanceCounter = 4;
+								counter2.staticCounter = 7; // mozliwe, ale odradzane
+
+								System.out.println(counter1.instanceCounter); // 6
+								System.out.println(counter2.instanceCounter); // 4
+								System.out.println(Counter.staticCounter); // 7
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Static
+						Z kontekstu statycznego mozna mieć dostęp tylko do statycznych wartości klasy.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Static
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Main {
+								// wartość statyczna
+								static int liczbaStatyczna = 1;
+								// wartość dynamiczna
+								int liczba = 2;
+								// metoda statyczna
+								public static void main(String[] args) {
+									// metoda ma dostęp do wartości statycznej
+									System.out.println(liczbaStatyczna);
+									// metoda statyczna NIE ma dostępu do wartości dynamicznej
+									System.out.println(liczba);
+								}
+							}
+						</code></pre>
+						Non-static field 'liczba' cannot be referenced from a static context
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Static
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Main {
+								static int liczbaStatyczna = 1;
+								int liczba = 2;
+								public static void main(String[] args) {
+									// jest dostęp
+									System.out.println(liczbaStatyczna);
+									// brak dostępu
+									System.out.println(liczba);
+									// wartość dynamiczna powiazana jest tylko z konkretna instancja
+									// Aby mieć do niej dostęp nalezy taka instancję utworzyć
+									Main main = new Main();
+									// jest dostęp
+									System.out.println(main.liczba)
+								}
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wzorce projektowe
+						Czyli wzorce do naśladowania, w procesie projektowania aplikacji
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wzorce projektowe
+						Istnieje wiele wzorców projektowych, które realizuj konkretne zadania.
+						- wzorce kreacyjne - klasy tworzone na celu kreacji nowych obiektów. Np. Fabryka, Prototyp, Singleton
+						- wzorce strukturalne - wyjaśniają jak składać obiekty i klasy w większe struktury. Np Adapter, Fasada, Dekorator
+						- wzorce behawioralne - dotyczą algorytmów i podziału zadań pomiędzy obiektami. Np Strategia, Obserwator
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wzorzec Singleton
+						Przez wielu uwazany za anty-wzorzec. W javie jego uzyteczność jest kwestia watpliwa. Zapewnia on istnienie tylko jednej instancji danej klasy
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wzorzec Singleton
+						Problem: chcemy aby mozliwe było zadeklarowanie tylko jednej instancji klasy Singleton
+						<pre><code data-trim data-noescape data-line-numbers>
+							package pakiet;
+
+							public class Main {
+								public static void main(String[] args) {
+								  NotASingleton object1 = new NotASingleton();
+								  NotASingleton object2 = new NotASingleton();
+							  
+								  // pakiet.Main$NotASingleton@36baf30c
+								  System.out.println(object1);
+								  // pakiet.Main$NotASingleton@7a81197d
+								  System.out.println(object2);
+								}
+							  
+								static class NotASingleton { }
+							  }							  
+						</code></pre>
+						Rózne wartości hashCode (rózne adresy w pamięci), oznaczaja, ze mamy do czynienia z dwoma osobnymi instancjami.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wzorzec Singleton
+						Rozwiazanie: wzorzec Singleton
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Singleton {
+								// jedyna instancja klasy Singleton, niedostępna z zewnatrz klasy
+								private static final Singleton instance = new Singleton();
+							
+								private Singleton() {
+									// prywatny konstruktor uniemożliwa jego wykonanie spoza klasy
+								}
+							
+								// getter instancji
+								public Singleton getInstance() {
+									return instance;
+								}
+							}				  
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Data i czas w Javie
+						Pakiet java.time
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Data i czas w Javie
+						Java oferuje kompleksowy zestaw klas do obsługi daty i czasu.
+						- LocalDate reprezentuje datę bez strefy czasowej (RRRR-MM-DD).
+						- LocalTime reprezentuje czas bez strefy czasowej (GG:MM:SS).
+						- LocalDateTime łączy datę i czas, ale nadal bez strefy czasowej.	
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Data i czas w Javie
+						<pre><code data-trim data-noescape data-line-numbers>
+							LocalDate data = LocalDate.now(); // 2023-11-25
+							LocalTime czas = LocalTime.now(); // 13:21:42.133046
+							LocalDateTime dataCzas = LocalDateTime.of(2020, 6, 17, 12, 0, 0, 0); // 2020-06-17T12:00:00.000000
+						</code></pre>
+						Raz ustawione, wartości te sa niemodyfikowalne, co czyni je bezpiecznymi w uzyciu
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Data i czas w Javie
+						Istnieje wiele metod umozliwiajacych działanie na datach. M.in. formatowanie dat.
+						<pre><code data-trim data-noescape data-line-numbers>
+							LocalDateTime dataCzas = LocalDateTime.of(2020, 6, 17, 12, 0, 0, 0);
+
+							DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+							String sformatowanaData = dataCzas.format(formatter); // 06-17-2020 12:00
+							LocalDateTime sparsowanaData = LocalDateTime.parse("06-19-2020 13:00", formatter); // obiekt LocalDateTime utworzony na podstawie stringa
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Data i czas w Javie
+						Istnieje wiele metod umozliwiajacych działanie na datach. M.in. obliczanie róznicy między datami.
+						<pre><code data-trim data-noescape data-line-numbers>
+							LocalDate date1 = LocalDate.of(2020, 1, 1);
+							LocalDate date2 = LocalDate.of(2023, 2, 1);
+
+							Period period = Period.between(date1, date2);
+
+							int diffYears = period.getYears(); // 3
+							int diffMonths = period.getMonths(); // 1
+							int diffDays = period.getDays(); // 0
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Data i czas w Javie
+						Istnieje wiele metod umozliwiajacych działanie na datach. M.in. obliczanie róznicy między datami.
+						<pre><code data-trim data-noescape data-line-numbers>
+							LocalDate date1 = LocalDate.of(2020, 1, 1);
+							LocalDate date2 = LocalDate.of(2023, 2, 1);
+
+							long daysBetween = ChronoUnit.DAYS.between(date1, date2);
+							System.out.println("Róznica w dniach: " + daysBetween); // Róznica w dniach: 1127
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wartości Generyczne
+						Czyli typ o nieznanej wartości
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Wartości Generyczne
+						Wartości generyczne posiadaja nieokreślony typ. Jest on poznawany dopiero przy deklaracji.
+						Przykładem klasy generycznej jest poznana wcześniej Lista, lub Mapa
+						<pre><code data-trim data-noescape data-line-numbers>
+							List< Integer > list = new ArrayList<>(); // lista integerów
+							Map< Integer, String > mapa = new HashMap<>(); // mapa przyjmujaca za klucz liczbe, a za wartość ciag znaków
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Operator diamentowy
+						Aby oznaczyć wartości generyczne, uzywany jest operator diamentowy
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Generic< K > {
+								K value;
+							}
+						</code></pre>
+						K jest w tym przypadku nazwa typu. Nazwa jest dowolna, z reguły jest to jedna duza litera
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Klasa generyczna
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Main {
+								public static void main(String[] args) {
+								  Pair< Integer, String > pair = new Pair<>(1, "Jeden");
+								  Pair< Integer, String > pair2 = new Pair<>(5, "Pięć");
+							  
+								  Pair< Date, String > pair3 = new Pair<>(new Date(), "Sobota");
+								}
+							  }
+
+							public class Pair< K, V > {
+								K key;
+								V value;
+								public Pair(K key, V value){
+									this.key = key;
+									this.value = value;
+								}
+							}
+						</code></pre>
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Metoda generyczna
+						Podobnie jak w przypadku klasy tutaj równiez wykorzystywany jest operator diamentowy
+						<pre><code data-trim data-noescape data-line-numbers>
+							public class Main {
+								public static void main(String[] args) {
+								  int liczba = 20;
+								  List< String > lista = new ArrayList<>();
+								  // Typ obiektu to: class java.lang.Integer
+								  poznajTyp(liczba);
+								  // Typ obiektu to: class java.util.ArrayList
+								  poznajTyp(lista);
+								}
+							  
+								public static < T > void poznajTyp(T element){
+								  System.out.println("Typ obiektu to: " + element.getClass());
+								}
+							  }							  
+						</code></pre>
+					</textarea>
+				</section>
 			</div>
 		</div>
 
